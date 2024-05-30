@@ -1,9 +1,22 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress');
+const browserify = require('@badeball/cypress-cucumber-preprocessor/browserify');
 
 module.exports = defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
+    async setupNodeEvents(on, config) {
+      const cucumber = require('@badeball/cypress-cucumber-preprocessor');
+      await cucumber.addCucumberPreprocessorPlugin(on, config);
+
+      on('file:preprocessor', browserify.default(config));
+
+      return config;
     },
+    specPattern: "cypress/integration/**/*.feature",
+    baseUrl: "https://sandbox.melhorenvio.com.br/cadastre-se",
+    supportFile: "cypress/support/e2e.js",
+    fixturesFolder: "cypress/fixtures",
+    viewportWidth: 1000,
+    viewportHeight: 660,
+    stepDefinitions: "cypress/support/step_definitions/"
   },
 });
