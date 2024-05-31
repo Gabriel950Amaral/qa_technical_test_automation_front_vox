@@ -66,8 +66,7 @@ O arquivo **_cypress.env.json_** neste projeto, encontra-se no _.gitignore_. Log
 > exemplo:
 
 ```js
-$ git clone https://github.com/Gabriel950Amaral/test_back_final_melhor_envio
-```
+$ git clone https://github.com/Gabriel950Amaral/test_front_final_melhor_envio.git
 
 
 > Dicas
