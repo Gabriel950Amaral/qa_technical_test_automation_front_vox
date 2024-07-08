@@ -1,4 +1,4 @@
-# CYPRESS TEST QA MELHOR ENVIO
+# CYPRESS TEST CREDISIS
 -----------------------
 
 
@@ -85,7 +85,7 @@ npm install cypress --save-dev
 $ npx ci
 ```
 
-> Para rodas os testes:
+> Para rodar os testes:
 
 ```js
 $ npx cypress opengit

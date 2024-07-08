@@ -12,7 +12,7 @@ module.exports = defineConfig({
       return config;
     },
     specPattern: "cypress/integration/**/*.feature",
-    baseUrl: "https://sandbox.melhorenvio.com.br/cadastre-se",
+    baseUrl: "https://conteudo.credisis.com.br/cooperado",
     supportFile: "cypress/support/e2e.js",
     fixturesFolder: "cypress/fixtures",
     viewportWidth: 1000,

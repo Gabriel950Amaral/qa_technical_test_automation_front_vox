@@ -17,56 +17,24 @@ Given("que estou na tela inicial do Cadastro", () => {
     cadastroPage.acessarSite();
 });
 
-When("preencho os campos “Nome” e “E-mail”", () => {
+
+When("preencho os campos do formulário corretamente", () => {
+  cadastroPage.aceitarCoockies();
   cadastroPage.preencherCadastroInicial();
 });
 
-When("clico em “CADASTRAR”", () => {
-  cadastroPage.clicarBotaoCadastrar();
+When("seleciono a cidade", () => {
+  cadastroPage.selecionarCidade()
 });
 
-Then("devo ver a mensagem de e-mail já cadastrado no sistema", () => {
-  cadastroPage.validarCampoInvalido();
+When("resolvo a expressão mátematica", () => {
+  cadastroPage.resolverExpressaoMatematica()
 });
 
-
-When("preencho os campos “CPF”, “Data de Nascimento”, “Celular” e “Senha” corretamente", () => {
-  cadastroPage.preencherDadosPessoais();
-  cadastroPage.aceitarTermosUso();
+When("envio o formulário", () => {
+  cadastroPage.enviarFormularioCadastro()
 });
 
-When("preencho o CPF com um formato inválido", () => {
-  cadastroPage.preencherDadosCpfInvalido();
-});
-
-When("preencho o telefone com um formato inválido", () => {
-  cadastroPage.preencherDadosTelefoneInvalido();
-});
-
-Then("devo ver uma mensagem de erro indicando que o CPF é inválido", () => {
-  cadastroPage.validarCampoInvalido();
-});
-
-Then("devo ver uma mensagem de erro indicando que o telefone é inválido", () => {
-  cadastroPage.validarCampoInvalido();
-});
-
-When("clico no botão “AVANÇAR”", function () {
-  cadastroPage.clicarAvancar();
-});
-
-When("preencho “CEP” com um Cep válido E preencho o campo “Número”", () => {
-  cadastroPage.preencherDadosEndereco();
-});
-
-
-
-Then("o cadastro na plataforma deve ser efetuado com sucesso", () => {
-  cadastroPage.cadastroConcluido()
-});
-
-When("devo ser redirecionado para a tela de “Boas-Vindas” do sistema", () => {
+When("devo ser redirecionado para a tela de Agradecimento do sistema", () => {
   cadastroPage.validarRedirecionamento()
 });
-
-

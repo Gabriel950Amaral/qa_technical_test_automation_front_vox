@@ -1,78 +1,46 @@
 class CadastroElements {
   inputNome = () => {
-    return '[data-cy="lead-input-name"]';
+    return 'input[name="name"]';
   };
 
   inputEmail = () => {
-    return '[data-cy="lead-input-email"]';
-  };
-
-  botaoCadastrar = () => {
-    return '[data-cy="lead-button-register"]';
-  };
-
-  inputDataNascimento = () => {
-    return '[data-cy="personal-input-birthdate"]';
-  };
+    return 'input[name="email"]';
+  }
 
   inputCelular = () => {
-    return '[data-cy="personal-input-phone"]';
+    return '#rd-phone_field-_NTcLCwlSl-MjkaA0TJLvg';
   };
 
   inputCpf = () => {
-    return '[data-cy="personal-input-cpf"]';
+    return 'input[name="cpf"]';
   };
 
-  mensagemErropreenchimentoCampo = () => {
-    return '.errorText';
+  enviarFormulario = () => {
+    return '#rd-button-joq3m2m7';
+  };
+
+  aceitarCoockies = () => {
+    return '.cc-ALLOW';
+  };
+
+  selectCidades = () => {
+    return '#select2-chosen-1';
   };
   
-  inputSenha = () => {
-    return '.form-box-input';
+  pesquisarCidade = () => {
+    return '#s2id_autogen1_search';
   };
 
-  checkAceiteTermos = () => {
-    return '[data-cy="personal-checkbox-terms"]';
-  };
-
-  inputCep = () => {
-    return '[data-cy="company-input-cep"]';
-  };
-
-  inputEndereco = () => {
-    return '[data-cy="company-input-address"]';
-  };
-
-  inputNumero = () => {
-    return '[data-cy="company-input-number"]';
+  captcha = () => {
+    return '#captcha';
   };
   
-  inputComplemento = () => {
-    return '[data-cy="company-input-complement"]';
-  };
-
-  botaoAvancar = () => {
-    return '[data-cy="personal-button-submit"]';
-  };
-
-  botaoAvancarEndereco = () => {
-    return '[data-cy="company-button-confirm"]';
-  };
-
-  inputEstado = () => {
-    return '[id="slEstadoEmpresa"]';
-  };
-
-  inputCidade = () => {
-    return '[id="iptCidadeEmpresa""]';
-  };
-
-  cadastroConcluido = () => {
-    return '.complete-registration__text--primary';
-  };
-
   urlCadastroConcluido = () => {
-    return 'https://sandbox.melhorenvio.com.br/cadastre-se/boas-vindas';
+    return 'https://conteudo.credisis.com.br/agradecimento';
+  };
+
+  botaoIrSite = () => {
+    return '#rd-button-kshzjvy1';
   };
 }
 

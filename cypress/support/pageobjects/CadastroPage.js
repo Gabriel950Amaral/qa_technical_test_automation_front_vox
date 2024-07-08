@@ -55,67 +55,58 @@ class LoginPage {
     cy.visit(url);
   }
 
+  aceitarCoockies() {
+    cy.get(cadastroElements.aceitarCoockies()).click();
+  }
   // Clica no botão de realizar login
   preencherCadastroInicial() {
         cy.get(cadastroElements.inputNome()).should('be.visible')
         cy.get(cadastroElements.inputNome()).type(user.nome);
         cy.get(cadastroElements.inputEmail()).type(user.email);
+        cy.get(cadastroElements.inputCelular()).type(gerarTelefoneCelular())
+  }
+
+  selecionarCidade() {
+    cy.get(cadastroElements.selectCidades()).click()
+    cy.get(cadastroElements.pesquisarCidade()).type("Cuiabá").wait(2000).type('{enter}');
   }
  
-  clicarBotaoCadastrar() {
-    cy.get(cadastroElements.botaoCadastrar()).click();
+  resolverExpressaoMatematica() {       
+    // Resolver a expressão matemática
+    cy.get('#math_expression').then(($expression) => {
+      const expressionText = $expression.text().trim();
+      const [num1, operator, num2] = expressionText.split(' ');
+
+      let result;
+      switch (operator) {
+        case '+':
+          result = parseInt(num1) + parseInt(num2);
+          break;
+        case '-':
+          result = parseInt(num1) - parseInt(num2);
+          break;
+        case '*':
+          result = parseInt(num1) * parseInt(num2);
+          break;
+        case '/':
+          result = parseInt(num1) / parseInt(num2);
+          break;
+        default:
+          throw new Error('Operador desconhecido');
+      }
+      cy.get(cadastroElements.captcha()).type(result);
+    });
   }
 
-  preencherDadosPessoais() {
-    cy.get(cadastroElements.inputCpf()).should('be.visible');
-    cy.get(cadastroElements.inputCpf()).type(user.cpf);
-    cy.get(cadastroElements.inputDataNascimento()).type(gerarDataNascimento());
-    cy.get(cadastroElements.inputCelular()).type(gerarTelefoneCelular());
-    cy.get(cadastroElements.inputSenha()).type(user.senha);
+  enviarFormularioCadastro() {
+    // Submeter o formulário
+    cy.get(cadastroElements.enviarFormulario()).click();
   }
 
-  preencherDadosCpfInvalido(){
-    cy.get(cadastroElements.inputCpf()).should('be.visible');
-    cy.get(cadastroElements.inputCpf()).type(user.cpfInvalido);
-    cy.get(cadastroElements.inputDataNascimento()).type(gerarDataNascimento());
-    cy.get(cadastroElements.inputCelular()).type(gerarTelefoneCelular());
-    cy.get(cadastroElements.inputSenha()).type(user.senha);
-  }
-
-  preencherDadosTelefoneInvalido(){
-    cy.get(cadastroElements.inputCpf()).should('be.visible');
-    cy.get(cadastroElements.inputCpf()).type(user.cpf);
-    cy.get(cadastroElements.inputDataNascimento()).type(gerarDataNascimento());
-    cy.get(cadastroElements.inputCelular()).type(user.telefoneInvalido);
-    cy.get(cadastroElements.inputSenha()).type(user.senha);
-  }
-
-  validarCampoInvalido() {
-    cy.get(cadastroElements.mensagemErropreenchimentoCampo()).should('be.visible');
-  }
-
-  aceitarTermosUso() {
-    cy.get(cadastroElements.checkAceiteTermos()).click({force: true});
-  }
-
-  clicarAvancar() {
-    cy.get(cadastroElements.botaoAvancar()).should('be.visible');
-    cy.get(cadastroElements.botaoAvancar()).click();
-  }
-
-  preencherDadosEndereco() {
-    cy.get(cadastroElements.inputCep()).should('be.visible');
-    cy.get(cadastroElements.inputCep()).type(user.cep);
-    cy.get(cadastroElements.inputNumero()).type(user.numeroEndereço)
-    cy.get(cadastroElements.inputComplemento()).type(user.complemento)
-    cy.get(cadastroElements.botaoAvancarEndereco()).click()
-  }
-
-  cadastroConcluido() {
-    cy.get(cadastroElements.cadastroConcluido()).should('be.visible');
-  }
 
   validarRedirecionamento() {
+    // Verificar se há uma mensagem de sucesso
+    cy.contains('Em breve um dos nossos consultores entrará em contato com você!').should('be.visible');
      cy.url().should('eq', cadastroElements.urlCadastroConcluido());
     }
 }
