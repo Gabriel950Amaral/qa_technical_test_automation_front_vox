@@ -12,7 +12,7 @@ module.exports = defineConfig({
       return config;
     },
     specPattern: "cypress/integration/**/*.feature",
-    baseUrl: "https://conteudo.credisis.com.br/cooperado",
+    baseUrl: "https://www.saucedemo.com/v1/",
     supportFile: "cypress/support/e2e.js",
     fixturesFolder: "cypress/fixtures",
     viewportWidth: 1000,
