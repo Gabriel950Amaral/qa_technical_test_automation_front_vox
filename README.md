@@ -1,4 +1,4 @@
-# CYPRESS TEST CREDISIS
+# CYPRESS TEST VOX
 -----------------------
 
 
@@ -66,7 +66,7 @@ O arquivo **_cypress.env.json_** neste projeto, encontra-se no _.gitignore_. Log
 > exemplo:
 
 ```js
-$ git clone https://github.com/Gabriel950Amaral/test_front_final_melhor_envio.git
+$ git clone https://github.com/Gabriel950Amaral/qa_technical_test_automation_front_vox.git
 
 
 > Dicas
